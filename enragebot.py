@@ -1,8 +1,9 @@
+from decouple import config
 import os
 import discord
 import requests
-
-my_secret = os.environ['token1']
+  
+BOT_TOKEN = config('TOKEN')
 client = discord.Client()
 
 
@@ -23,4 +24,4 @@ async def on_message(message):
     insult = get_insult()
     await message.channel.send(f"Hey @Adam, {insult}")
 
-client.run(my_secret)
+client.run(BOT_TOKEN)
